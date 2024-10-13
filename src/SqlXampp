@@ -1,0 +1,44 @@
+CREATE DATABASE quanlysinhvien;
+USE quanlysinhvien;
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    status VARCHAR(20)
+);
+CREATE TABLE userinfo (
+    id INT PRIMARY KEY,
+    gender VARCHAR(10),
+    rating INT,
+    avg_competitor DECIMAL(5, 2),
+    avg_time DECIMAL(5, 2),
+    total_match INT,
+    win INT,
+    lose INT,
+    draw INT,
+    FOREIGN KEY (id) REFERENCES users(id)
+);
+INSERT INTO users (username, password, status) 
+VALUES 
+    ('user1', 'pass1', 'Offline'),
+    ('user2', 'pass2', 'Offline'),
+    ('user3', 'pass3', 'Offline'),
+    ('user4', 'pass4', 'Offline'),
+    ('user5', 'pass5', 'Offline'),
+    ('user6', 'pass6', 'Offline'),
+    ('user7', 'pass7', 'Offline'),
+    ('user8', 'pass8', 'Offline'),
+    ('user9', 'pass9', 'Offline'),
+    ('user10', 'pass10', 'Offline');
+INSERT INTO userinfo (id, gender, rating, avg_competitor, avg_time, total_match, win, lose, draw) 
+VALUES 
+    (1, 'male', 1900, 10.00, 100.00, 100, 100, 0, 0),
+    (2, 'female', 1800, 15.00, 90.00, 80, 50, 20, 10),
+    (3, 'male', 2000, 12.00, 85.00, 70, 40, 30, 0),
+    (4, 'female', 1600, 20.00, 95.00, 60, 30, 25, 5),
+    (5, 'male', 1700, 18.00, 80.00, 50, 20, 20, 10),
+    (6, 'female', 1900, 14.00, 75.00, 40, 25, 10, 5),
+    (7, 'male', 1950, 22.00, 92.00, 30, 15, 10, 5),
+    (8, 'female', 1650, 16.00, 88.00, 20, 10, 8, 2),
+    (9, 'male', 1750, 19.00, 87.00, 10, 5, 5, 0),
+    (10, 'female', 1850, 13.00, 91.00, 5, 3, 2, 0);
